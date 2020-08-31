@@ -1,0 +1,18 @@
+Tower Says: Baloon#B1(1) registered to weather tower.
+
+Tower Says: Baloon#B2(1) registered to weather tower.
+
+Tower Says: Jetplane#J1(1) registered to the weatherTower.
+
+Tower Says: Helicopter#H1(1) registered to weather tower.
+
+Tower Says: Helicopter#H2(1) registered to weather tower.
+
+Tower Says: Helicopter#H3(1) registered to weather tower.
+
+Tower Says: Baloon#B3(1) registered to weather tower.
+
+Tower Says: Jetplane#J2(1) registered to the weatherTower.
+
+Tower Says: Helicopter#H4(1) registered to weather tower.
+
