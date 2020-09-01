@@ -32,16 +32,14 @@ public	class	Simulator {
                 weatherTower = new WeatherTower();
 
                 int simulations = Integer.parseInt(line.split(" ")[0]);
-                System.out.println(simulations);
 
                 if (simulations < 0) {
-                    System.out.println("Invalid simulations count " + simulations);
+                    System.out.println("Invalid simulation count can't be negative  ");
                     System.exit(1);
                 }
-                System.out.println(line.split(" ")[0]);
                 while ((line = reader.readLine()) != null) {
 
-                    
+                  
                   Flyable flyable = AircraftFactory.newAircraft(line.split(" ")[0], line.split(" ")[1],
                             Integer.parseInt(line.split(" ")[2]), Integer.parseInt(line.split(" ")[3]),
                             Integer.parseInt(line.split(" ")[4]));
@@ -55,15 +53,16 @@ public	class	Simulator {
                 }
 
                 for (int i = 1; i <= simulations; i++) {
+                    WriteFile.getWriteFile().writeToFile("\n"+"count" + i);
                     weatherTower.changeWeather();
                 }
             }
         } catch (FileNotFoundException e) {
             System.out.println("Couldn't find file " + arg[0]);
         } catch (IOException e) {
-            System.out.println("There was an error while reading the file " + arg[0]);
+            System.out.println("Something went wrong while reading the file " + arg[0]);
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Specify simulation file");
+            System.out.println("You did not specify the simulation file");
         } catch (NullPointerException e) {
             System.out.println("value is null");
         } catch (NumberFormatException e) {

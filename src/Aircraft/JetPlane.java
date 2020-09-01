@@ -27,7 +27,7 @@ public class JetPlane extends Aircraft implements Flyable {
 
         JetPlane.put("SNOW","It has started snowing look out the window");
 
-        String tmp = "Jetplane#" +  super.name + "("+ this.id + ")";
+        String tmp = "Jetplane#" +  super.name + "("+ super.id + ")";
 
         switch (weather){
 
@@ -62,7 +62,7 @@ public class JetPlane extends Aircraft implements Flyable {
     @Override
     public void registerTower(WeatherTower weatherTower) {
         weatherTower.register(this);
-        String write = "Tower Says: Jetplane#" + this.name + "("+super.id + ") registered to the weatherTower.\n";
+        String write = "Tower Says: Jetplane#" + this.name + "("+super.id + ") registered to the weatherTower.";
         this.weatherTower = weatherTower;
         WriteFile.getWriteFile().writeToFile(write);
 

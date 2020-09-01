@@ -14,15 +14,6 @@ public class  Baloon extends Aircraft implements Flyable {
     }
 
     @Override
-    public void registerTower(WeatherTower weatherTower) {
-        weatherTower.register(this);
-        String write = "Tower Says: Baloon#" + super.name + "(" + super.id + ") registered to weather tower.\n";
-        this.weatherTower = weatherTower;
-        WriteFile.getWriteFile().writeToFile(write);
-
-    }
-
-    @Override
     public void updateConditions() {
 
         String weather = this.weatherTower.getWeather(this.coordinates);
@@ -64,8 +55,17 @@ public class  Baloon extends Aircraft implements Flyable {
 
         if (this.coordinates.getHeight() <= 0) {
             WriteFile.getWriteFile().writeToFile("Baloon#" + name + "(" + id + "): landing.");
-            WriteFile.getWriteFile().writeToFile("Tower says: Baloon#" + this.name + "(" + this.id + ") unregister from weather tower.\n");
+            WriteFile.getWriteFile().writeToFile("Tower says: Baloon#" + super.name + "(" + super.id + ") unregister from weather tower.");
             weatherTower.unregister(this);
         }
+    }
+
+    @Override
+    public void registerTower(WeatherTower weatherTower) {
+        weatherTower.register(this);
+        String write = "Tower Says: Baloon#" + super.name + "(" + super.id + ") registered to weather tower.";
+        this.weatherTower = weatherTower;
+        WriteFile.getWriteFile().writeToFile(write);
+
     }
 }
