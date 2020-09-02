@@ -4,9 +4,9 @@ package simulator;
 import Aircraft.*;
 import Weather.*;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
+//import java.io.FileNotFoundException;
+//import java.io.IOException;
 import  java.util.*;
 
 import Weather.*;
@@ -22,7 +22,12 @@ public	class	Simulator {
     private static List<Flyable> flyables = new ArrayList<Flyable>();
 
     public static void main(String[] arg) throws InterruptedException {
+
         try {
+            if(arg.length == 0) {
+                System.out.println("Invalid input");
+                return;
+            }
             BufferedReader reader = new BufferedReader(new FileReader("scenario.txt"));
 
             String line = reader.readLine();
